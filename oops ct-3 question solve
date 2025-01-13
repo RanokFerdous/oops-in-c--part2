@@ -1,0 +1,310 @@
+// /*
+// /*
+// //question 1: create a class student with name and roll no. create a class exam with marks. create a class result which will inherit student and exam. create a object of result and display the result of student.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+class student
+{
+    string name;
+    int rollNo;
+
+public:
+    //constructor create
+    student (string n, int r)
+    {
+        name=n;
+        rollNo=r;
+
+        cout<<" student constructor is called. "<<endl;
+    }
+
+    void displayStudent()
+    {
+        cout<<"Name: "<<name<<endl;
+        cout<<"Roll No: "<<rollNo<<endl;
+    }
+    
+};
+
+class Exam: public student
+{
+    int marks;
+    public:
+    Exam(string n, int r, int m): student(n,r)
+    {
+        marks=m;
+        cout<<"Exam constructor is called. "<<endl;
+    }
+
+    void displayExam()
+    {
+        displayStudent(); //print name and roll no
+        cout<<"Marks: "<<marks<<endl;
+    }
+};
+
+
+
+class Result: public Exam
+{
+    int percentage;
+
+    public:
+
+    Result(string n, int r, int m): Exam(n,r,m)
+    {
+        percentage=(m/100)*100;
+        cout<<"Result constructor is called. "<<endl;
+    }
+
+
+};
+
+int main()
+{
+    Result r1("John", 101, 90);
+    r1.displayExam();
+
+    Exam e1("John", 121,80  );
+    e1.displayExam();
+    return 0;
+}
+
+
+
+// */
+
+// //question 2:write a c++ program to swap 2 numberes by using function template.
+// /*
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// template <class T>
+
+// void swapNum(T &a, T &b)
+// {
+//     T temp;
+//     temp=a;
+//     a=b;
+//     b=temp;
+// }
+
+
+// int main()
+// {
+//     int a=10, b=20;
+//     cout<<"Before swapping: "<<endl;
+//     cout<<"a: "<<a<<endl;
+//     cout<<"b: "<<b<<endl;
+
+//     swapNum(a,b);
+
+//     cout<<"After swapping: "<<endl;
+//     cout<<"a: "<<a<<endl;
+//     cout<<"b: "<<b<<endl;
+
+//     return 0;
+// }
+
+// */
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int arr[5]={1,2,3,4,5};
+//     int index;
+//     cout<<"Enter the index: ";
+
+//     cin>>index;
+
+//     try
+//     {
+//         if(index<0 || index>=5)
+//         {
+//             throw "Out of bound";
+//         }
+//         cout<<"Element at index "<<index<<" is: "<<arr[index]<<endl;
+//     }
+//     catch(const char *msg)
+//     {
+//        // cout<<msg<<endl;
+//     }
+// }
+
+// */
+
+
+// //question 3: write a c++ program to demonstrate exception handling for divide by zero exception.
+
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     while(1)
+//     {
+//          int num1,num2;
+//     cout<<"Enter the first number: ";
+//     cin>>num1;
+
+//     cout<<"Enter the second number: ";
+//     cin>>num2;
+
+//     try{
+
+
+//     if(num2==0)
+//     {
+//         throw -1;
+
+//     }
+
+//     double result=(double)num1/num2;
+//     cout<<"Result: "<<result<<endl;
+
+//     }
+
+//     //catch( int x)
+//     catch(...)
+//     {
+//         cout<<"Divide by zero exception."<<endl;
+//         cout<<"Please try again."<<endl;
+//     }
+//     }
+// }
+
+// */
+
+
+// //question 4: write a c++ program to demonstrate exception handling for array out of bound exception.
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+
+// while(1)
+// {
+//     try
+//     {
+
+//         int arr[5]={1,2,3,4,5};
+
+//     int index;
+
+//     cout<<"Enter the index: ";
+//     cin>>index;
+//         if( index<0 || index>=5)
+//         {
+//             throw "Out of bound";
+//         }
+
+//         cout<<"Element at index "<<index<<" is: "<<arr[index]<<endl;
+//     }
+
+//     //
+
+//     // catch( const char *msg)
+//     // {
+//     //     cout<<msg<<endl;
+//     // }
+
+//     catch(...)
+//     {
+//         cout<<"Array out of bound exception."<<endl;
+//         cout<<"Please try again."<<endl;
+
+//     }
+
+// }
+
+
+// }
+
+// */
+
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class base
+// {
+//     int b;
+//     public:
+//     base(int x)
+//     {
+//         b=x;
+//         cout<<"Base"<<endl;
+// }
+
+//     ~base()
+//     {
+//         cout<<"Base class destructor is called."<<endl;
+//     }
+// };
+
+// class derived: public base
+// {
+//     double d;
+//     public:
+//     derived(double x, int y): base(y)
+//     {
+//         d=x;
+//         cout<<"Derived"<<endl;
+//     }
+
+//     // ~derived()
+//     {
+//         cout<<"Derived class destructor is called."<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     derived d1(10.7,20);
+//     return 0;
+// }
+
+
+/*
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int p=-1;
+
+    try{
+        cout<<"Inside try"<<endl;
+        if(p<0)
+        {
+            throw p;
+            cout<<"After throw"<<endl;
+        }
+    }
+    catch(int p)
+    {
+        cout<<"Exception caught"<<endl;
+    }
+}
+
+
+*/
+//output:
+// Inside try
+// Exception caught
+// After catch
+
+
+//
